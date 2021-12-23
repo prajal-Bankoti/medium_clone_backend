@@ -1,4 +1,3 @@
-const multer = require("multer");
 const express = require("express");
 
 const userControllrs = require("./controllers/user.controller");
