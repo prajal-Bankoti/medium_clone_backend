@@ -1,8 +1,8 @@
 {
-  "name": "my-work",
+  "name": "hackathon_backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "nodemon src/server"
@@ -22,6 +22,10 @@
     "mongoose": "^6.0.12",
     "mongose": "^0.0.2-security",
     "multer": "^1.4.3"
-  }
- 
+  },
+  "bugs": {
+    "url": "https://github.com/prajal-Bankoti/hackathon_backend/issues"
+  },
+  "homepage": "https://github.com/prajal-Bankoti/hackathon_backend#readme"
+  
 }
