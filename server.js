@@ -1,7 +1,7 @@
-const app=require("./index")
+const app=require("./src/index")
 require('dotenv').config()
 
-const connect =require("./configs/db")
+const connect =require("./src/configs/db")
 let port = process.env.Port||7000
 app.listen(port,async function(){
     await connect()
