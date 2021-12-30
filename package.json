@@ -7,7 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
 
-    "start": "nodemone server.js"
+    "start": "nodemon server.js"
   },
   "engines": {
     "node": "14.16.1", 
