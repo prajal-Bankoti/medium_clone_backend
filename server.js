@@ -22,8 +22,8 @@ module.exports = app;
 require("dotenv").config();
 
 const connect = require("./src/configs/db");
-let port = process.env.Port || 7000;
-app.listen(port,async () => {
+let PORT = process.env.PORT || 7000;
+app.listen(PORT,async () => {
  await connect();
-  console.log("listing port " + port);
+  console.log("listing PORT " + PORT);
 });
