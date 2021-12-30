@@ -5,7 +5,7 @@ var fs = require("fs");
 
 const city = require("../models/city.model");
 const vlog = require("../models/vlog.model");
-const upload = require("../midlleware/file-upload")
+const upload = require("../midlleware/file-upload");
 
 const User = require("../models/user.model");
 
@@ -36,9 +36,9 @@ router.post("/vlog", upload.single("img"), async (req, res) => {
   try {
     if (req.file) {
       req.body["img"] = req.file.path;
-      console.log(req.body)
+      console.log(req.body);
     }
-   console.log(req.body);
+    console.log(req.body);
     user = await vlog.create(req.body);
     return res.send(req.body);
   } catch (err) {
@@ -65,12 +65,11 @@ router.patch("/blog/:ID", async (req, res) => {
   try {
     console.log(req.params.ID);
     //let text = ;
-   console.log(req.body)
-    
+    console.log(req.body);
+
     const user = await vlog.findByIdAndUpdate(req.params.ID, req.body).exec();
-    console.log(user)
-  
-   
+    console.log(user);
+
     return res.send(user);
   } catch (err) {
     console.log(err);
@@ -84,9 +83,9 @@ router.delete("/blog/:ID", async (req, res) => {
   try {
     console.log(req.params.ID);
     const user = await vlog.findByIdAndDelete(req.params.ID);
-    console.log(user)
-    console.log(user.img)
-    if(user.img!='false'){
+    console.log(user);
+    console.log(user.img);
+    if (user.img != "false") {
       fs.unlinkSync(user.img);
     }
     return res.send(user);
@@ -116,8 +115,7 @@ router.get("/onevlog/:ID", async (req, res) => {
 router.get("/vlog", async (req, res) => {
   try {
     //  console.log(req.params.ID)
-    const data = await vlog.find().lean().exec();
-
+    const data = await vlog.find().populate("user").exec();
     return res.send(data);
   } catch (err) {
     console.log(err);
