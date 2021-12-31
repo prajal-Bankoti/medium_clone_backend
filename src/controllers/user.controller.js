@@ -18,7 +18,7 @@ router.post("/register", async (req, res) => {
     if (user) {
       return res.send(user);
     }
-    req.body.img = req.file.filename;
+  //  req.body.img = req.file.filename;
     user = await User.create(req.body);
     console.log(user);
     return res.send(user);

@@ -16,7 +16,7 @@ app.use(cors());
 app.use(express.static(__dirname));
 app.use(express.static("public"));
 
-app.use("/uploads", express.static("uploads"));
+app.use("/uploads", express.static("/uploads"));
 
 app.use("/user", userControllrs);
 module.exports = app;
