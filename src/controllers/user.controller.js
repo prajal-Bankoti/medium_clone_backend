@@ -61,6 +61,18 @@ router.get("/blog/:ID", async (req, res) => {
 });
 ////////////////////////////////////////////////////
 
+router.get("/search", async (req, res) => {
+  try {
+    let find = req.query.find||"akkk";
+    // if (find) {
+    let diver1 = await vlog.find({ title: {$regex: find, $options: "i"} });
+    return res.send(diver1);
+    // }
+  } catch (err) {
+    return res.status(200).send(err.message);
+  }
+});
+///////////////////////////////////////////////////////
 router.patch("/blog/:ID", async (req, res) => {
   try {
     console.log(req.params.ID);
@@ -124,16 +136,7 @@ router.get("/vlog", async (req, res) => {
 });
 //////////////////////////////////////////////////////////
 
-router.get("/search", async (req, res) => {
-  try {
-    let find = req.query.search.toLowerCase() || "p";
 
-    let data = await vlog.find({ title: { $regex: find, $options: "i" } });
-    return res.send(data);
-  } catch (err) {
-    return res.status(200).send(err.message);
-  }
-});
 
 /////////////////////////////////////////////////////////////////////
 
